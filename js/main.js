@@ -84,3 +84,26 @@ promotionToggleBtn.addEventListener('click', function(){
     promotionEl.classList.remove('hide')
   }
 });
+
+function random(min,max){
+  return parseFloat((Math.random() * (max -min) + min).toFixed(2))
+}
+
+function floationgObject(selector, delay, size){
+  // gsap.to(요소, 지속시간, 옵션));
+  gsap.to(
+    selector, //선택자
+    random(1.5, 2.5), //애니메이션 동작 시간
+    { //옵션
+      y: size,
+      repeat: -1,
+      yoyo: true,
+      ease: Power1.easeInOut,
+      delay: random(0,delay)
+    }
+  );
+}
+
+floationgObject('.floating1', 1 , 15);
+floationgObject('.floating2', 0.5 , 15);
+floationgObject('.floating3', 1.5 , 20);
